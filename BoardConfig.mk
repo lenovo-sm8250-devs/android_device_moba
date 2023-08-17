@@ -68,7 +68,7 @@ BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
 BOARD_KERNEL_SEPARATED_DTBO := 
 endif
 
-#Partitions
+# Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 104857600
 BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
 BOARD_DTBOIMG_PARTITION_SIZE := 8388608
@@ -129,6 +129,9 @@ include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+
+# SELinux only for testing
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 
 # Inherit the proprietary files
 include vendor/lenovo/moba/BoardConfigVendor.mk
