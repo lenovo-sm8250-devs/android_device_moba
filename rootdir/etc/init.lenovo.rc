@@ -1,0 +1,307 @@
+# init.moba.rc
+
+import /vendor/etc/init/hw/init.aplog.rc
+
+on early-init
+   insmod /vendor/lib/modules/audio_aw88264.ko
+
+# Add factest service
+service factest /vendor/bin/factest
+	class main
+	user root
+	group root system vendor_qti_diag sdcard_rw cache drmrpc
+
+service pnx /vendor/bin/pnscr -p empty
+	class main
+	user system
+	group nfc
+	oneshot
+	disabled
+
+on boot
+	start factest
+	mkdir /mnt/vendor/persist/camera 0775 system system
+
+# UFS devices
+    write /sys/devices/platform/soc/1d84000.ufshc/ufstw_lu0/tw_enable 1
+    write /sys/devices/platform/soc/1d84000.ufshc/ufstw_lu0/flush_enable 0
+    write /sys/devices/platform/soc/1d84000.ufshc/ufstw_lu0/flush_during_hibern_enter 1
+
+on post-fs
+    #goodix
+    chown system system /dev/goodix_fp
+    chmod 666 /dev/goodix_fp
+    mkdir /mnt/vendor/persist/fpdata 0775 system system
+    chmod 775 /mnt/vendor/persist/fpdata/
+    chmod 666 /mnt/vendor/persist/fpdata/BMatrix.so
+    chmod 666 /mnt/vendor/persist/fpdata/caliParamsInfo.so
+    chmod 666 /mnt/vendor/persist/fpdata/cali_data.so
+    chmod 666 /mnt/vendor/persist/fpdata/chartbase.so
+    restorecon_recursive  /mnt/vendor/persist/fpdata
+    chown system system /sys/class/dsi_hbm/hbm/enable
+    chown system system /sys/class/backlight/panel0-hbm/brightness
+    chmod 666 /sys/class/backlight/panel0-hbm/brightness
+    chmod 666 /sys/class/backlight/panel0-backlight/brightness
+    chown system system /sys/class/leds/aw9106_led/aw_brightness
+    chown system system /sys/class/leds/aw9106_led/brightness
+    chmod 666 /sys/class/leds/vibrator/activate
+    chmod 666 /sys/class/leds/vibrator/duration
+    chmod 666 /sys/class/leds/vibrator/double_duration
+    chmod 666 /sys/class/leds/vibrator/state
+    chmod 666 /sys/class/leds/vibrator/cali_lra
+    chmod 666 /sys/class/leds/vibrator/cali
+    chmod 666 /sys/class/leds/vibrator/dual_cancel
+	chmod 666 /sys/class/leds/vibrator/trig
+    chmod 666 /sys/class/leds/vibrator_aw8697x/cali
+    chmod 666 /sys/class/leds/vibrator_aw8697x/cali_lra
+	chmod 666 /sys/class/leds/vibrator_aw8697x/trig
+#awinic
+    chown system system /sys/bus/i2c/drivers/aw882xx_smartpa/1-0035/cali
+    chmod 0664 /sys/bus/i2c/drivers/aw882xx_smartpa/1-0035/cali
+    chown system system /sys/bus/i2c/drivers/aw882xx_smartpa/1-0034/cali
+    chmod 0664 /sys/bus/i2c/drivers/aw882xx_smartpa/1-0034/cali
+    mkdir /mnt/vendor/persist/factory 0775 system system
+    mkdir /mnt/vendor/persist/factory/audio 0775 system system
+    chmod 0666 /mnt/vendor/persist/factory/audio/aw_cali.bin
+#Awinic haptic ZUIQ-5009
+    chown audioserver audioserver /dev/awinic_haptic
+    chown audioserver audioserver /sys/class/leds/vibrator/haptic_audio
+#sona key
+    chown system system /sys/snt8100fsr/force_threshold
+    chown system system /sys/snt8100fsr/raw_report
+    chown system system /sys/snt8100fsr/misc_cmd
+    chown system system /sys/snt8100fsr/set_reg
+#thermal
+    chown system system /dev/lenovo_sys_temp
+    chmod 666 /dev/lenovo_sys_temp
+    chmod 0666 /sys/devices/system/cpu/cpu0/rq-stats/mpctl
+    chown system system /sys/devices/system/cpu/cpu0/rq-stats/mpctl
+    chmod 0666 /sys/class/power_supply/thermal/charge_thermal_status
+    chown system system /sys/class/power_supply/thermal/charge_thermal_status
+    chmod 0666 /sys/class/power_supply/thermal/therm_display_rate_level
+    chown system system /sys/class/power_supply/thermal/therm_display_rate_level
+    chmod 0666 /sys/class/power_supply/thermal/therm_speaker_level
+    chown system system /sys/class/power_supply/thermal/therm_speaker_level
+    chmod 0666 /sys/class/power_supply/thermal/therm_modem_5g_level
+    chown system system /sys/class/power_supply/thermal/therm_modem_5g_level
+    chmod 0666 /sys/class/power_supply/thermal/therm_camera_level
+    chown system system /sys/class/power_supply/thermal/therm_camera_level
+#charge
+    chmod 666 /sys/class/power_supply/battery/fac_chip_read_enabled
+    chown system system /sys/class/power_supply/bq-battery/capacity
+    chown system system /sys/class/power_supply/bq-battery/capacity_decimal
+    chown system system /sys/class/power_supply/bq-battery/capacity_level
+    chown system system /sys/class/power_supply/bq-battery/charge_counter
+    chown system system /sys/class/power_supply/bq-battery/charge_full
+    chown system system /sys/class/power_supply/bq-battery/charge_full_design
+    chown system system /sys/class/power_supply/bq-battery/current_now
+    chown system system /sys/class/power_supply/bq-battery/cycle_count
+    chown system system /sys/class/power_supply/bq-battery/health
+    chown system system /sys/class/power_supply/bq-battery/present
+    chown system system /sys/class/power_supply/bq-battery/resistance_id
+    chown system system /sys/class/power_supply/bq-battery/soh
+    chown system system /sys/class/power_supply/bq-battery/status
+    chown system system /sys/class/power_supply/bq-battery/technology
+    chown system system /sys/class/power_supply/bq-battery/temp
+    chown system system /sys/class/power_supply/bq-battery/ti_die_temperature
+    chown system system /sys/class/power_supply/bq-battery/time_to_empty_now
+    chown system system /sys/class/power_supply/bq-battery/time_to_full_now
+    chown system system /sys/class/power_supply/bq-battery/type
+    chown system system /sys/class/power_supply/bq-battery/uevent
+    chown system system /sys/class/power_supply/bq-battery/update_now
+    chown system system /sys/class/power_supply/bq-battery/voltage_now
+    chown system system /sys/class/power_supply/bq2589h-charger/charge_type
+    chown system system /sys/class/power_supply/bq2589h-charger/charging_enabled
+    chown system system /sys/class/power_supply/bq2589h-charger/fac_charging_enabled
+    chown system system /sys/class/power_supply/bq2589h-charger/fac_input_suspend
+    chown system system /sys/class/power_supply/bq2589h-charger/input_suspend
+    chown system system /sys/class/power_supply/bq2589h-charger/online
+    chown system system /sys/class/power_supply/bq2589h-charger/present
+    chown system system /sys/class/power_supply/bq2589h-charger/real_type
+    chown system system /sys/class/power_supply/bq2589h-charger/status
+    chown system system /sys/class/power_supply/bq2589h-charger/temp
+    chown system system /sys/class/power_supply/bq2589h-charger/ti_charger_battery_current
+    chown system system /sys/class/power_supply/bq2589h-charger/ti_charger_battery_voltage
+    chown system system /sys/class/power_supply/bq2589h-charger/ti_charger_bus_voltage
+    chown system system /sys/class/power_supply/bq2589h-charger/ti_charger_config_fcc
+    chown system system /sys/class/power_supply/bq2589h-charger/ti_charger_config_icl
+    chown system system /sys/class/power_supply/bq2589h-charger/ti_charger_icl
+    chown system system /sys/class/power_supply/bq2589h-charger/ti_charger_system_voltage
+    chown system system /sys/class/power_supply/bq2589h-charger/type
+    chown system system /sys/class/power_supply/bq2589h-charger/uevent
+    chown system system /sys/class/power_supply/bq2597x-master/charging_enabled
+    chown system system /sys/class/power_supply/bq2597x-master/present
+    chown system system /sys/class/power_supply/bq2597x-master/status
+    chown system system /sys/class/power_supply/bq2597x-master/ti_alarm_status
+    chown system system /sys/class/power_supply/bq2597x-master/ti_battery_current
+    chown system system /sys/class/power_supply/bq2597x-master/ti_battery_present
+    chown system system /sys/class/power_supply/bq2597x-master/ti_battery_temperature
+    chown system system /sys/class/power_supply/bq2597x-master/ti_battery_voltage
+    chown system system /sys/class/power_supply/bq2597x-master/ti_bus_current
+    chown system system /sys/class/power_supply/bq2597x-master/ti_bus_present
+    chown system system /sys/class/power_supply/bq2597x-master/ti_bus_temperature
+    chown system system /sys/class/power_supply/bq2597x-master/ti_bus_voltage
+    chown system system /sys/class/power_supply/bq2597x-master/ti_die_temperature
+    chown system system /sys/class/power_supply/bq2597x-master/ti_fault_status
+    chown system system /sys/class/power_supply/bq2597x-master/ti_reg_status
+    chown system system /sys/class/power_supply/bq2597x-master/type
+    chown system system /sys/class/power_supply/bq2597x-master/uevent
+    chown system system /sys/class/power_supply/bq2597x-sec-master/charging_enabled
+    chown system system /sys/class/power_supply/bq2597x-sec-master/present
+    chown system system /sys/class/power_supply/bq2597x-sec-master/status
+    chown system system /sys/class/power_supply/bq2597x-sec-master/ti_alarm_status
+    chown system system /sys/class/power_supply/bq2597x-sec-master/ti_battery_current
+    chown system system /sys/class/power_supply/bq2597x-sec-master/ti_battery_present
+    chown system system /sys/class/power_supply/bq2597x-sec-master/ti_battery_temperature
+    chown system system /sys/class/power_supply/bq2597x-sec-master/ti_battery_voltage
+    chown system system /sys/class/power_supply/bq2597x-sec-master/ti_bus_current
+    chown system system /sys/class/power_supply/bq2597x-sec-master/ti_bus_present
+    chown system system /sys/class/power_supply/bq2597x-sec-master/ti_bus_temperature
+    chown system system /sys/class/power_supply/bq2597x-sec-master/ti_bus_voltage
+    chown system system /sys/class/power_supply/bq2597x-sec-master/ti_die_temperature
+    chown system system /sys/class/power_supply/bq2597x-sec-master/ti_fault_status
+    chown system system /sys/class/power_supply/bq2597x-sec-master/ti_reg_status
+    chown system system /sys/class/power_supply/bq2597x-sec-master/type
+    chown system system /sys/class/power_supply/bq2597x-sec-master/uevent
+    chown system system /sys/class/power_supply/bq2597x-sec-slave/charging_enabled
+    chown system system /sys/class/power_supply/bq2597x-sec-slave/present
+    chown system system /sys/class/power_supply/bq2597x-sec-slave/status
+    chown system system /sys/class/power_supply/bq2597x-sec-slave/ti_alarm_status
+    chown system system /sys/class/power_supply/bq2597x-sec-slave/ti_battery_current
+    chown system system /sys/class/power_supply/bq2597x-sec-slave/ti_battery_present
+    chown system system /sys/class/power_supply/bq2597x-sec-slave/ti_battery_temperature
+    chown system system /sys/class/power_supply/bq2597x-sec-slave/ti_battery_voltage
+    chown system system /sys/class/power_supply/bq2597x-sec-slave/ti_bus_current
+    chown system system /sys/class/power_supply/bq2597x-sec-slave/ti_bus_present
+    chown system system /sys/class/power_supply/bq2597x-sec-slave/ti_bus_temperature
+    chown system system /sys/class/power_supply/bq2597x-sec-slave/ti_bus_voltage
+    chown system system /sys/class/power_supply/bq2597x-sec-slave/ti_die_temperature
+    chown system system /sys/class/power_supply/bq2597x-sec-slave/ti_fault_status
+    chown system system /sys/class/power_supply/bq2597x-sec-slave/ti_reg_status
+    chown system system /sys/class/power_supply/bq2597x-sec-slave/type
+    chown system system /sys/class/power_supply/bq2597x-sec-slave/uevent
+    chown system system /sys/class/power_supply/bq2597x-slave/charging_enabled
+    chown system system /sys/class/power_supply/bq2597x-slave/present
+    chown system system /sys/class/power_supply/bq2597x-slave/status
+    chown system system /sys/class/power_supply/bq2597x-slave/ti_alarm_status
+    chown system system /sys/class/power_supply/bq2597x-slave/ti_battery_current
+    chown system system /sys/class/power_supply/bq2597x-slave/ti_battery_present
+    chown system system /sys/class/power_supply/bq2597x-slave/ti_battery_temperature
+    chown system system /sys/class/power_supply/bq2597x-slave/ti_battery_voltage
+    chown system system /sys/class/power_supply/bq2597x-slave/ti_bus_current
+    chown system system /sys/class/power_supply/bq2597x-slave/ti_bus_present
+    chown system system /sys/class/power_supply/bq2597x-slave/ti_bus_temperature
+    chown system system /sys/class/power_supply/bq2597x-slave/ti_bus_voltage
+    chown system system /sys/class/power_supply/bq2597x-slave/ti_die_temperature
+    chown system system /sys/class/power_supply/bq2597x-slave/ti_fault_status
+    chown system system /sys/class/power_supply/bq2597x-slave/ti_reg_status
+    chown system system /sys/class/power_supply/bq2597x-slave/type
+    chown system system /sys/class/power_supply/bq2597x-slave/uevent
+    chown system system /sys/class/power_supply/bq27z561-master/capacity
+    chown system system /sys/class/power_supply/bq27z561-master/capacity_level
+    chown system system /sys/class/power_supply/bq27z561-master/charge_counter
+    chown system system /sys/class/power_supply/bq27z561-master/charge_full
+    chown system system /sys/class/power_supply/bq27z561-master/charge_full_design
+    chown system system /sys/class/power_supply/bq27z561-master/current_now
+    chown system system /sys/class/power_supply/bq27z561-master/cycle_count
+    chown system system /sys/class/power_supply/bq27z561-master/health
+    chown system system /sys/class/power_supply/bq27z561-master/present
+    chown system system /sys/class/power_supply/bq27z561-master/resistance_id
+    chown system system /sys/class/power_supply/bq27z561-master/soh
+    chown system system /sys/class/power_supply/bq27z561-master/status
+    chown system system /sys/class/power_supply/bq27z561-master/technology
+    chown system system /sys/class/power_supply/bq27z561-master/temp
+    chown system system /sys/class/power_supply/bq27z561-master/ti_die_temperature
+    chown system system /sys/class/power_supply/bq27z561-master/time_to_empty_now
+    chown system system /sys/class/power_supply/bq27z561-master/time_to_full_now
+    chown system system /sys/class/power_supply/bq27z561-master/type
+    chown system system /sys/class/power_supply/bq27z561-master/uevent
+    chown system system /sys/class/power_supply/bq27z561-master/update_now
+    chown system system /sys/class/power_supply/bq27z561-master/voltage_now
+    chown system system /sys/class/power_supply/bq27z561-slave/capacity
+    chown system system /sys/class/power_supply/bq27z561-slave/capacity_level
+    chown system system /sys/class/power_supply/bq27z561-slave/charge_counter
+    chown system system /sys/class/power_supply/bq27z561-slave/charge_full
+    chown system system /sys/class/power_supply/bq27z561-slave/charge_full_design
+    chown system system /sys/class/power_supply/bq27z561-slave/current_now
+    chown system system /sys/class/power_supply/bq27z561-slave/cycle_count
+    chown system system /sys/class/power_supply/bq27z561-slave/health
+    chown system system /sys/class/power_supply/bq27z561-slave/present
+    chown system system /sys/class/power_supply/bq27z561-slave/resistance_id
+    chown system system /sys/class/power_supply/bq27z561-slave/soh
+    chown system system /sys/class/power_supply/bq27z561-slave/status
+    chown system system /sys/class/power_supply/bq27z561-slave/technology
+    chown system system /sys/class/power_supply/bq27z561-slave/temp
+    chown system system /sys/class/power_supply/bq27z561-slave/ti_die_temperature
+    chown system system /sys/class/power_supply/bq27z561-slave/time_to_empty_now
+    chown system system /sys/class/power_supply/bq27z561-slave/time_to_full_now
+    chown system system /sys/class/power_supply/bq27z561-slave/type
+    chown system system /sys/class/power_supply/bq27z561-slave/uevent
+    chown system system /sys/class/power_supply/bq27z561-slave/update_now
+    chown system system /sys/class/power_supply/bq27z561-slave/voltage_now
+    chown system system /sys/class/power_supply/thermal/therm_camera
+    chown system system /sys/class/power_supply/thermal/therm_camera_level
+    chown system system /sys/class/power_supply/thermal/therm_camera_level_max
+    chown system system /sys/class/power_supply/thermal/therm_camera_limit
+    chown system system /sys/class/power_supply/thermal/therm_display_rate
+    chown system system /sys/class/power_supply/thermal/therm_display_rate_level
+    chown system system /sys/class/power_supply/thermal/therm_display_rate_level_max
+    chown system system /sys/class/power_supply/thermal/therm_display_rate_limit
+    chown system system /sys/class/power_supply/thermal/therm_modem_5g
+    chown system system /sys/class/power_supply/thermal/therm_modem_5g_level
+    chown system system /sys/class/power_supply/thermal/therm_modem_5g_level_max
+    chown system system /sys/class/power_supply/thermal/therm_modem_5g_limit
+    chown system system /sys/class/power_supply/thermal/therm_speaker
+    chown system system /sys/class/power_supply/thermal/therm_speaker_level
+    chown system system /sys/class/power_supply/thermal/therm_speaker_level_max
+    chown system system /sys/class/power_supply/thermal/therm_speaker_limit
+
+#dp switch
+    chown system system /sys/devices/platform/soc/ae90000.qcom,dp_display/prefer_mode
+    chown system system /sys/devices/platform/soc/ae90000.qcom,dp_display/hpd_sim
+    chown system system /sys/devices/platform/soc/ae90000.qcom,dp_display/lanes_count
+    chmod 0666 /sys/devices/platform/soc/ae90000.qcom,dp_display/prefer_mode
+    chmod 0666 /sys/devices/platform/soc/ae90000.qcom,dp_display/hpd_sim
+    chmod 0666 /sys/devices/platform/soc/ae90000.qcom,dp_display/lanes_count
+
+on init
+#added touch gesture wake node permission
+    chown system /sys/devices/virtual/touch/tp_dev/gesture_on
+    chown system /sys/devices/virtual/touch/tp_dev/touch_key
+    chown system /sys/devices/virtual/touch/tp_dev/touch_key1
+    chown system /sys/devices/virtual/touch/tp_dev/touch_key2
+    chown system /sys/devices/virtual/touch/tp_dev/finger_match
+    chown system /sys/devices/virtual/touch/tp_dev/report_rate
+
+
+on property:ro.boot.bootreason=usb_chg
+#start qcom post cpu settings
+	start qcom-post-boot
+#lockdown cpus frequency
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq 300000
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq 710400
+    write /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq 710400
+    write /sys/devices/system/cpu/cpufreq/policy7/scaling_max_freq 844800
+    write /sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq 844800
+#set powersave governor
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor powersave
+    write /sys/devices/system/cpu/cpufreq/policy4/scaling_governor powersave
+    write /sys/devices/system/cpu/cpufreq/policy7/scaling_governor powersave
+#offline Gold+ CPU7
+    write /sys/devices/system/cpu/cpu7/online 0
+#offline CPU1-3
+    write /sys/devices/system/cpu/cpu1/online 0
+#offline Gold CPU5-6
+    write /sys/devices/system/cpu/cpu5/online 0
+    write /sys/devices/system/cpu/cpu6/online 0
+#shutdown snt8100fsr
+    write /sys/snt8100fsr/set_reg "0x02 0xff"
+#stop unused services
+	stop cameraserver
+	stop audioserver
+
+# Factory reset
+#on property:vendor.wipe_data=1
+#    factory_data_misc
+
