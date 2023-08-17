@@ -780,12 +780,12 @@ vendor/lib/libOpenCL.so
 vendor/lib/libcdsp_default_listener.so
 vendor/lib/libcdsprpc.so
 vendor/lib/libfastcvdsp_stub.so
-vendor/lib/libfastcvopt.so
+-vendor/lib/libfastcvopt.so
 vendor/lib64/libOpenCL.so
 vendor/lib64/libcdsp_default_listener.so
 vendor/lib64/libcdsprpc.so
 vendor/lib64/libfastcvdsp_stub.so
-vendor/lib64/libfastcvopt.so
+-vendor/lib64/libfastcvopt.so
 
 # Charger
 vendor/bin/hvdcp_opti
@@ -2293,8 +2293,8 @@ vendor/bin/thermal-engine
 vendor/etc/init/android.hardware.thermal@2.0-service.qti.rc
 vendor/etc/init/init_thermal-engine.rc
 vendor/etc/vintf/manifest/android.hardware.thermal@2.0-service.qti.xml
-vendor/lib/libthermalclient.so
-vendor/lib64/libthermalclient.so
+-vendor/lib/libthermalclient.so
+-vendor/lib64/libthermalclient.so
 
 # Thermal configs
 vendor/etc/thermal-engine.conf

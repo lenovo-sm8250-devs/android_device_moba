@@ -94,6 +94,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 
 # Platform
 TARGET_BOARD_PLATFORM := kona
+BOARD_USES_QCOM_HARDWARE := true
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
@@ -125,10 +126,10 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # SEPolicy
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
-
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+
 
 # SELinux only for testing
 BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
