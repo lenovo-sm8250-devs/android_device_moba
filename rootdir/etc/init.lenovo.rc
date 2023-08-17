@@ -9,7 +9,7 @@ on early-init
 service factest /vendor/bin/factest
 	class main
 	user root
-	group root system vendor_qti_diag sdcard_rw cache drmrpc
+	group root system sdcard_rw cache drmrpc
 
 service pnx /vendor/bin/pnscr -p empty
 	class main
