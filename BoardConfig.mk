@@ -7,8 +7,8 @@
 DEVICE_PATH := device/lenovo/moba
 
 # Clang
-TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_CLANG_VERSION := proton
+# TARGET_KERNEL_CLANG_COMPILE := true
+# TARGET_KERNEL_CLANG_VERSION := proton
 
 # Ignore overriding commands errors
 BUILD_BROKEN_DUP_RULES := true
