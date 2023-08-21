@@ -12,6 +12,25 @@ PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.1-impl-mock \
     fastbootd
 
+# Boot control
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.1-impl-qti \
+    android.hardware.boot@1.1-impl-qti.recovery \
+    android.hardware.boot@1.1-service \
+    bootctrl.kona \
+    bootctrl.kona.recovery
+
+PRODUCT_PACKAGES_DEBUG += \
+    bootctl
+
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.base@1.0_system \
+    android.hidl.manager@1.0 \
+    libhidltransport \
+    libhwbinder
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
