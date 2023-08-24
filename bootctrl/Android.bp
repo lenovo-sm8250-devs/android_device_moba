@@ -14,25 +14,9 @@
 // limitations under the License.
 //
 
-
-cc_library {
-    name: "librecovery_updater.moto_bengal",
-    vendor: true,
-    recovery_available: true,
-    shared_libs: [
-        "libcutils",
-        "liblog",
-        "libz",
-    ],
-    cflags: [
-        "-Wall",
-        "-Werror",
-    ],
-    srcs: [
-        "gpt-utils.cpp",
-        "recovery-ufs-bsg.cpp",
-    ],
-    owner: "qti",
-    header_libs: ["generated_kernel_headers"],
-    export_include_dirs: ["."],
+cc_library_shared {
+    name: "android.hardware.boot@1.1-impl-qti",
+    stem: "android.hardware.boot@1.0-impl-1.1-qti",
+    defaults: ["android.hardware.boot@1.1-impl-qti_defaults"],
+    static_libs: ["libgptutils.lenovo"],
 }
