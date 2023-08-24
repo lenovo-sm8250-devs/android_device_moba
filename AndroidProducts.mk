@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_moba.mk
+    $(LOCAL_DIR)/aosp_moba.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_moba-user \
-    lineage_moba-userdebug \
-    lineage_moba-eng
+    aosp_moba-user \
+    aosp_moba-userdebug \
+    aosp_moba-eng
