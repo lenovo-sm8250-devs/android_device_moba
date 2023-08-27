@@ -2862,7 +2862,6 @@ vendor/etc/country_code_list.xml
 vendor/etc/diracmobile.config
 vendor/etc/excluded-input-devices.xml
 vendor/etc/flp.conf
-vendor/etc/fstab.qcom
 vendor/etc/ftm_test_config
 vendor/etc/ftm_test_config_kona-qrd-snd-card
 vendor/etc/gnss_antenna_info.conf
