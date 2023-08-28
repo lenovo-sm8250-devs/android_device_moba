@@ -66,7 +66,7 @@ TARGET_KERNEL_CLANG_VERSION := proton
 TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-proton
 
 # Kernel - prebuilt
-#TARGET_FORCE_PREBUILT_KERNEL := true
+TARGET_FORCE_PREBUILT_KERNEL := true
 ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
