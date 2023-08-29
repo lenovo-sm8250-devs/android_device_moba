@@ -7,3 +7,17 @@
 soong_namespace {
      imports: ["hardware/qcom-caf/bootctrl"]
 }
+
+prebuilt_hidl_interfaces {
+    name: "hidl_embmssl_interface",
+    interfaces: [
+        "vendor.qti.hardware.embmssl@1.0::IEmbms",
+        "vendor.qti.hardware.embmssl@1.1::IEmbms",
+    ],
+}
+prebuilt_hidl_interfaces {
+    name: "hidl_netperftuner_interface",
+    interfaces: [
+        "vendor.qti.hardware.wigig.netperftuner@1.0::INetPerfTuner",
+    ],
+}
