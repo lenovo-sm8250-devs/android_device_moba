@@ -191,12 +191,5 @@ sh_binary {
     vendor: true,
 }
 
-sh_binary {
-    name: "fstab.sh",
-    src: "bin/fstab.sh",
-    vendor: true,
-}
-
-
 
 
