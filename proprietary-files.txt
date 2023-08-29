@@ -2808,7 +2808,6 @@ vendor/etc/init/cameracalibration.rc
 vendor/etc/init/feature_enabler_client.rc
 vendor/etc/init/hostapd.android.rc
 vendor/etc/init/init.embmssl_server.rc
-vendor/etc/init/init.qdmastats.rc
 vendor/etc/init/init.qti.display_boot.rc
 vendor/etc/init/init.qti.fm.rc
 vendor/etc/init/init.qti.media.rc
