@@ -12,7 +12,6 @@ dalvik.vm.dex2oat-updatable-bcp-packages-file=/system/etc/updatable-bcp-packages
 dalvik.vm.dex2oat64.enabled=true
 dalvik.vm.dexopt.secondary=true
 dalvik.vm.dexopt.thermal-cutoff=2
-dalvik.vm.heapsize=36m
 dalvik.vm.image-dex2oat-Xms=64m
 dalvik.vm.image-dex2oat-Xmx=64m
 dalvik.vm.madvise.artfile.size=4294967295
