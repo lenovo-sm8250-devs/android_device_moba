@@ -23,6 +23,6 @@ PRODUCT_MANUFACTURER := lenovo
 PRODUCT_GMS_CLIENTID_BASE := android-lenovo
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="moba-user 12 SKQ1.220119.001 13.5.351_221103 release-keys"
+    PRIVATE_BUILD_DESC="moba_row-user 11 RKQ1.201022.002 12.5.538_220127 release-keys"
 
-BUILD_FINGERPRINT := Lenovo/moba/moba:12/SKQ1.220119.001/13.5.351_221103:user/release-keys
+BUILD_FINGERPRINT := Lenovo/moba_row/moba:11/RKQ1.201022.002/12.5.538_220127:user/release-keys
