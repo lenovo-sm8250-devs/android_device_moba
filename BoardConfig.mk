@@ -7,7 +7,7 @@
 DEVICE_PATH := device/lenovo/moba
 
 # Clang
-TARGET_KERNEL_CLANG_COMPILE := true
+# TARGET_KERNEL_CLANG_COMPILE := true
 
 # Ignore overriding commands errors
 BUILD_BROKEN_DUP_RULES := true
@@ -62,8 +62,8 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_CONFIG := moba_defconfig
 TARGET_KERNEL_SOURCE := kernel/lenovo/moba
-TARGET_KERNEL_CLANG_VERSION := proton
-TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-proton
+#TARGET_KERNEL_CLANG_VERSION := proton
+#TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-proton
 
 # Kernel - prebuilt
 TARGET_FORCE_PREBUILT_KERNEL := true
@@ -75,6 +75,11 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG :=
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
 BOARD_KERNEL_SEPARATED_DTBO := 
 endif
+
+# Kernel Modules
+BOARD_VENDOR_KERNEL_MODULES ?= \
+      $(wildcard $(DEVICE_PATH)/modules/*.ko)
+
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 104857600
