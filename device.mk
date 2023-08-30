@@ -23,15 +23,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.metadata.method=dm-default-key \
     ro.crypto.volume.options=::v2
 
-# Boot control
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.1-impl-qti \
-    android.hardware.boot@1.1-impl-qti.recovery \
-    android.hardware.boot@1.1-service \
-
-PRODUCT_PACKAGES_DEBUG += \
-    bootctl
-
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
@@ -139,7 +130,11 @@ PRODUCT_SHIPPING_API_LEVEL := 29
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
+<<<<<<< HEAD
     $(LOCAL_PATH)
+=======
+    $(LOCAL_PATH) \
+>>>>>>> ace59f3 (moba: drop boot hal)
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/lenovo/moba/moba-vendor.mk)
