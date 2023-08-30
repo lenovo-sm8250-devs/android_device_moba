@@ -81,6 +81,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     fstab.qcom \
+    fstab.qcom.ramdisk \
     init.qcom.usb.rc \
     init.lenovo.common.rc \
     init.qcom.factory.rc \
@@ -93,9 +94,6 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     ueventd.qcom.rc \
     init.qdmastats.rc \
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
 
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 29
