@@ -95,7 +95,7 @@ PRODUCT_PACKAGES += \
     init.qdmastats.rc \
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
 
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 29

@@ -191,5 +191,10 @@ sh_binary {
     vendor: true,
 }
 
-
+// fstab
+prebuilt_etc {
+    name: "fstab.qcom",
+    src: "etc/fstab.qcom",
+    vendor: true,
+}
 
