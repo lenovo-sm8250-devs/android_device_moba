@@ -194,7 +194,6 @@ sh_binary {
 prebuilt_etc {
     name: "fstab.qcom",
     src: "etc/fstab.qcom",
-    ramdisk_available: true,
     vendor: true,
 }
 

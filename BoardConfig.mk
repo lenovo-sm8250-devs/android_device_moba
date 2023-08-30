@@ -51,6 +51,7 @@ TARGET_USES_NEW_ION_API :=true
 BOARD_KERNEL_CMDLINE := \
     console=ttyMSM0,115200n8 \
     printk.devkmsg=on \
+    androidboot.fstab_suffix=qcom \
     earlycon=msm_geni_serial,0xa90000 \
     androidboot.hardware=qcom \
     androidboot.console=ttyMSM0 \
@@ -63,7 +64,7 @@ BOARD_KERNEL_CMDLINE := \
     swiotlb=2048 loop.max_part=7 \
     cgroup.memory=nokmem,nosocket \
     reboot=panic_warm \
-    buildvariant=user
+    buildvariant=eng
 
 BOARD_KERNEL_CMDLINE += androidboot.fstab_suffix=qcom
 BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
