@@ -12,6 +12,14 @@ PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.1-impl-mock \
     fastbootd
 
+# Crypto
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.crypto.allow_encrypt_override=true \
+    ro.crypto.dm_default_key.options_format.version=2 \
+    ro.crypto.volume.filenames_mode=aes-256-cts \
+    ro.crypto.volume.metadata.method=dm-default-key \
+    ro.crypto.volume.options=::v2
+
 # Boot control
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.1-impl-qti \
