@@ -51,7 +51,6 @@ TARGET_USES_NEW_ION_API :=true
 BOARD_KERNEL_CMDLINE := \
     console=ttyMSM0,115200n8 \
     printk.devkmsg=on \
-    androidboot.fstab_suffix=qcom \
     earlycon=msm_geni_serial,0xa90000 \
     androidboot.hardware=qcom \
     androidboot.console=ttyMSM0 \
@@ -66,7 +65,7 @@ BOARD_KERNEL_CMDLINE := \
     reboot=panic_warm \
     buildvariant=eng
 
-BOARD_KERNEL_CMDLINE += androidboot.fstab_suffix=qcom
+BOARD_KERNEL_CMDLINE += androidboot.fstab_suffix=default
 BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 
 BOARD_BOOTIMG_HEADER_VERSION := 2
@@ -81,6 +80,7 @@ BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 TARGET_KERNEL_CONFIG := moba_defconfig
 TARGET_KERNEL_SOURCE := kernel/lenovo/moba
+
 #TARGET_KERNEL_CLANG_VERSION := proton
 #TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-proton
 
@@ -131,7 +131,7 @@ TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/props/system_ext.prop
 TARGET_ODM_PROP += $(DEVICE_PATH)/props/odm.prop
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.default
 BOARD_INCLUDE_RECOVERY_DTBO := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
