@@ -66,9 +66,9 @@ BOARD_KERNEL_CMDLINE := \
     swiotlb=2048 loop.max_part=7 \
     cgroup.memory=nokmem,nosocket \
     reboot=panic_warm \
-    buildvariant=user
+    buildvariant=eng
 
-BOARD_KERNEL_CMDLINE += androidboot.fstab_suffix=qcom
+BOARD_KERNEL_CMDLINE += androidboot.fstab_suffix=default
 BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 
 BOARD_BOOTIMG_HEADER_VERSION := 2
@@ -139,7 +139,7 @@ TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/props/system_ext.prop
 TARGET_ODM_PROP += $(DEVICE_PATH)/props/odm.prop
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.default
 BOARD_INCLUDE_RECOVERY_DTBO := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true

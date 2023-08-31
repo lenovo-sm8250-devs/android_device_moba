@@ -1,7 +1,7 @@
 #!/vendor/bin/sh
 
 # Our Fstab Path
-FILE=/vendor/etc/fstab.qcom
+FILE=/vendor/etc/fstab.default
 
 # Check if it is present or not
 if [ -f "$FILE" ]; then
