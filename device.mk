@@ -130,11 +130,7 @@ PRODUCT_SHIPPING_API_LEVEL := 29
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-<<<<<<< HEAD
     $(LOCAL_PATH)
-=======
-    $(LOCAL_PATH) \
->>>>>>> ace59f3 (moba: drop boot hal)
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/lenovo/moba/moba-vendor.mk)
