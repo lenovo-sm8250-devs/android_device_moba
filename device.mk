@@ -176,6 +176,31 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_RECOVERY)/root/first_stage_ramdisk/fstab.default \
     $(LOCAL_PATH)/rootdir/etc/fstab.defa:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.default
 
+
+# Media Configs
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/media/media_codecs.xml :$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml /
+    $(LOCAL_PATH)/configs/media/media_codecs_google_audio.xml :$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml /
+    $(LOCAL_PATH)/configs/media/media_codecs_google_c2.xml :$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2.xml /
+    $(LOCAL_PATH)/configs/media/media_codecs_google_c2_audio.xml :$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_audio.xml /
+    $(LOCAL_PATH)/configs/media/media_codecs_google_c2_video.xml :$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_video.xml /
+    $(LOCAL_PATH)/configs/media/media_codecs_google_telephony.xml :$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml /
+    $(LOCAL_PATH)/configs/media/media_codecs_google_video.xml :$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml /
+    $(LOCAL_PATH)/configs/media/media_codecs_google_video_le.xml :$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video_le.xml /
+    $(LOCAL_PATH)/configs/media/media_codecs_kona.xml :$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_kona.xml /
+    $(LOCAL_PATH)/configs/media/media_codecs_kona_vendor.xml :$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_kona_vendor.xml /
+    $(LOCAL_PATH)/configs/media/media_codecs_performance_kona.xml :$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_kona.xml /
+    $(LOCAL_PATH)/configs/media/media_codecs_performance_kona_vendor.xml :$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_kona_vendor.xml /
+    $(LOCAL_PATH)/configs/media/media_codecs_vendor_audio.xml :$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml /
+    $(LOCAL_PATH)/configs/media/media_profiles.xml :$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml /
+    $(LOCAL_PATH)/configs/media/media_profiles_kona.xml :$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_kona.xml /
+    $(LOCAL_PATH)/configs/media/media_profiles_vendor.xml :$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml /
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/media/etc/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_ODM)/etc/media_profiles_V1_0.xml \
+
+
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 29
 
