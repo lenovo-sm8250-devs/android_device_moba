@@ -455,8 +455,8 @@ setprop ro.vendor.ril.mbn_copy_completed 1
 buildvariant=`getprop ro.build.type`
 case "$buildvariant" in
     "userdebug" | "eng")
-        #set default loglevel to KERN_INFO
-        echo "4 6 1 7" > /proc/sys/kernel/printk
+        #set default loglevel to KERN_DEBUG	
+        echo "7 6 1 7" > /proc/sys/kernel/printk
         ;;
     *)
         #set default loglevel to KERN_WARNING
