@@ -2484,19 +2484,6 @@ vendor/lib64/vendor.qti.hardware.wifi.supplicant@2.2.so
 vendor/lib64/vendor.qti.hardware.wifi.wifilearner@1.0.so
 vendor/lib64/vendor.qti.hardware.wigig.netperftuner@1.0.so
 
-# Wi-Fi configs
-vendor/etc/wifi/qca6390/WCNSS_qcom_cfg.ini
-vendor/etc/wifi/qca6490/WCNSS_qcom_cfg.ini
-vendor/etc/wifi/aoa_cldb_falcon.bin
-vendor/etc/wifi/aoa_cldb_swl14.bin
-vendor/etc/wifi/fstman.ini
-vendor/etc/wifi/icm.conf
-vendor/etc/wifi/p2p_supplicant_overlay.conf
-vendor/etc/wifi/wigig_p2p_supplicant.conf
-vendor/etc/wifi/wigig_supplicant.conf
-vendor/etc/wifi/wpa_supplicant.conf
-vendor/etc/wifi/wpa_supplicant_overlay.conf
-
 # Wi-Fi firmware
 vendor/firmware/wigig/wigig.ini
 vendor/firmware/wlan/qca_cld/qca6390/WCNSS_qcom_cfg.ini
