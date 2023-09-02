@@ -130,6 +130,8 @@ TARGET_COPY_OUT_VENDOR := vendor
 # Platform
 TARGET_BOARD_PLATFORM := kona
 BOARD_USES_QCOM_HARDWARE := true
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno650
+QCOM_BOARD_PLATFORMS := kona
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/props/system.prop
