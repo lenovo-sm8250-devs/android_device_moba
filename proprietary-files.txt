@@ -2220,9 +2220,6 @@ vendor/etc/vintf/manifest/android.hardware.thermal@2.0-service.qti.xml
 -vendor/lib/libthermalclient.so
 -vendor/lib64/libthermalclient.so
 
-# Thermal configs
-vendor/etc/thermal-engine.conf
-
 # Time services
 vendor/app/TimeService/TimeService.apk
 vendor/bin/time_daemon
