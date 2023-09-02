@@ -280,6 +280,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
 
+
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power-service-qti
+    
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 29
 
