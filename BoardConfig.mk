@@ -114,13 +114,6 @@ TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_VENDOR := vendor
 
-# Properties
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/props/system.prop
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/props/vendor.prop
-TARGET_PRODUCT_PROP += $(DEVICE_PATH)/props/product.prop
-TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/props/system_ext.prop
-TARGET_ODM_PROP += $(DEVICE_PATH)/props/odm.prop
-
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.default
 BOARD_INCLUDE_RECOVERY_DTBO := true
