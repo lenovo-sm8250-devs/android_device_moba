@@ -2492,14 +2492,12 @@ vendor/firmware/wlan/qca_cld/qca6490/WCNSS_qcom_cfg.ini
 vendor/firmware/wlan/qca_cld/qca6490/wlan_mac.bin
 vendor/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
 
-<<<<<<< HEAD
 # Wi-Fi Display
 system_ext/apex/com.android.vndk.v30/lib/libgralloctypes.so
 system_ext/apex/com.android.vndk.v30/lib64/libgralloctypes.so
-=======
+
 # WiFi Display
 -framework/WfdCommon.jar
->>>>>>> 941dda0 (sm8250-common: Switch to wlan qti component)
 system_ext/bin/wfdservice
 system_ext/etc/init/wfdservice.rc
 system_ext/lib/hw/vendor.qti.hardware.sigma_miracast@1.0-impl.so
@@ -2619,7 +2617,6 @@ vendor/bin/chattr
 vendor/bin/checkpoint_gc
 vendor/bin/chifeature2test
 vendor/bin/chiofflinepostproctest
-vendor/bin/cnss-daemon
 vendor/bin/cnss_diag
 vendor/bin/cplay
 vendor/bin/devmem
