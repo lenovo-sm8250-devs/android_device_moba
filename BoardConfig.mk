@@ -122,10 +122,6 @@ TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_VENDOR := vendor
 
-# Platform
-TARGET_BOARD_PLATFORM := kona
-BOARD_USES_QCOM_HARDWARE := true
-
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/props/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/props/vendor.prop

@@ -1,14 +1,9 @@
-#
-# Copyright (C) 2023 The LineageOS Project
-#
-# SPDX-License-Identifier: Apache-2.0
-#
-
-# Include GSI keys
-$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
-
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
+# Platform
+TARGET_BOARD_PLATFORM := kona
+BOARD_USES_QCOM_HARDWARE := true
 
 # fastbootd
 PRODUCT_PACKAGES += \
@@ -136,7 +131,8 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapper@1.1.vendor \
     vendor.qti.hardware.display.mapper@2.0.vendor \
     vendor.qti.hardware.display.mapper@3.0.vendor \
-    vendor.qti.hardware.display.mapper@4.0.vendor
+    vendor.qti.hardware.display.mapper@4.0.vendor \
+    libdisplayconfig.qti
 
 # Display Configs
 PRODUCT_COPY_FILES += \
@@ -283,7 +279,11 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
-    
+
+# QTI
+TARGET_COMMON_QTI_COMPONENTS := \
+wlan
+
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 29
 

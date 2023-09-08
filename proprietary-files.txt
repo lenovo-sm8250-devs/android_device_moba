@@ -1032,7 +1032,7 @@ vendor/lib/hw/memtrack.kona.so
 vendor/lib/hw/vulkan.adreno.so
 vendor/lib/libEGL_adreno.so
 vendor/lib/libadreno_utils.so
-vendor/lib/libdisplayconfig.qti.so
+-vendor/lib/libdisplayconfig.qti.so
 vendor/lib/libdisplaydebug.so
 vendor/lib/libdrmutils.so
 vendor/lib/libgralloccore.so
@@ -1090,7 +1090,7 @@ vendor/lib64/hw/memtrack.kona.so
 vendor/lib64/hw/vulkan.adreno.so
 vendor/lib64/libEGL_adreno.so
 vendor/lib64/libadreno_utils.so
-vendor/lib64/libdisplayconfig.qti.so
+-vendor/lib64/libdisplayconfig.qti.so
 vendor/lib64/libdisplaydebug.so
 vendor/lib64/libdrmutils.so
 vendor/lib64/libgpu_tonemapper.so
