@@ -117,8 +117,8 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 104857600
 BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor odm
 
-BOARD_SUPER_PARTITION_SIZE := 9126805504 
-BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9122611200 
+BOARD_SUPER_PARTITION_SIZE := 9126805504
+BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9122611200
 
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -134,8 +134,6 @@ TARGET_COPY_OUT_VENDOR := vendor
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/init/fstab.default
-BOARD_INCLUDE_RECOVERY_DTBO := true
-TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Security patch level
@@ -150,10 +148,6 @@ include device/qcom/sepolicy_vndr/SEPolicy.mk
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
-
-
-# SELinux only for testing
-BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 
 # Inherit the proprietary files
 include vendor/lenovo/moba/BoardConfigVendor.mk
