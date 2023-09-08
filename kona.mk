@@ -1,3 +1,11 @@
+# Kernel
+TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)-kernel/kernel
+
+PRODUCT_COPY_FILES += \
+    $(TARGET_PREBUILT_KERNEL):kernel
+
+PRODUCT_VENDOR_KERNEL_HEADERS += $(LOCAL_PATH)-kernel/kernel-headers
+
 # Platform
 TARGET_BOARD_PLATFORM := kona
 BOARD_USES_QCOM_HARDWARE := true
@@ -237,6 +245,7 @@ PRODUCT_SHIPPING_API_LEVEL := 29
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
+    $(LOCAL_PATH)-kernel \
     packages/modules/Bluetooth/android/app
 
 # Inherit the proprietary files

@@ -17,6 +17,12 @@ LOCAL_PATH := $(call my-dir)
 ifneq ($(filter moba,$(TARGET_DEVICE)),)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
+# Kernel headers
+$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr: $(wildcard device/lenovo/moba-kernel/kernel-headers/*)
+	rm -rf $@
+	mkdir -p $@/include
+	cp -a device/lenovo/moba-kernel/kernel-headers/. $@/include
+
 VENDOR_SYMLINKS := \
     $(TARGET_OUT_VENDOR)/lib \
     $(TARGET_OUT_VENDOR)/lib64 \
