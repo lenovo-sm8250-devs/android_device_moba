@@ -112,6 +112,10 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
 
+# Bt
+PRODUCT_COPY_FILES += \
+    vendor/qcom/opensource/audio-hal/primary-hal/configs/common/bluetooth_qti_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_qti_audio_policy_configuration.xml
+
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.sf.color_mode=0 \
@@ -177,7 +181,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init/fstab.default:$(TARGET_COPY_OUT_RAMDISK)/fstab.default
 
-
 # Media Configs
 
 PRODUCT_COPY_FILES += \
@@ -221,6 +224,7 @@ PRODUCT_PACKAGES += \
 
 # QTI
 TARGET_COMMON_QTI_COMPONENTS := \
+    bt \
     display \
     wlan
 
@@ -230,8 +234,7 @@ PRODUCT_SHIPPING_API_LEVEL := 29
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    $(LOCAL_PATH)-kernel \
-    packages/modules/Bluetooth/android/app
+    $(LOCAL_PATH)-kernel
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/lenovo/moba/moba-vendor.mk)

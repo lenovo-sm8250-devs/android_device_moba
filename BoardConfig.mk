@@ -58,15 +58,19 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_kona
 TARGET_BOOTLOADER_BOARD_NAME := kona
 TARGET_NO_BOOTLOADER := true
 
+# Bluetooth
+BOARD_HAVE_BLUETOOTH_QCOM := true
+TARGET_USE_QTI_BT_STACK := true
+TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true
+
 #  Display
 TARGET_SCREEN_DENSITY := 480
-
 
 # Kernel
 BOARD_KERNEL_CMDLINE := \
     console=ttyMSM0,115200n8 \
     printk.devkmsg=on \
-    androidboot.fstab_suffix=qcom \
+    androidboot.fstab_suffix=default \
     earlycon=msm_geni_serial,0xa90000 \
     androidboot.hardware=qcom \
     androidboot.console=ttyMSM0 \
