@@ -9,13 +9,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Inherit from moba device
 $(call inherit-product, device/lenovo/moba/device.mk)
 
 PRODUCT_DEVICE := moba
-PRODUCT_NAME := aosp_moba
+PRODUCT_NAME := lineage_moba
 PRODUCT_BRAND := Lenovo
 PRODUCT_MODEL := Lenovo L79031
 PRODUCT_MANUFACTURER := lenovo
