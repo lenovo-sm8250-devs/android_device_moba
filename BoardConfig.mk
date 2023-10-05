@@ -54,6 +54,8 @@ TARGET_USES_QTI_MAPPER_EXTENSIONS_1_1 := true
 BOARD_KERNEL_CMDLINE := \
     console=ttyMSM0,115200n8 \
     printk.devkmsg=on \
+    loglevel=7 \
+    androidboot.fstab_suffix=default \
     earlycon=msm_geni_serial,0xa90000 \
     androidboot.hardware=qcom \
     androidboot.console=ttyMSM0 \
@@ -68,7 +70,6 @@ BOARD_KERNEL_CMDLINE := \
     reboot=panic_warm \
     buildvariant=eng
 
-BOARD_KERNEL_CMDLINE += androidboot.fstab_suffix=default
 BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 
 BOARD_BOOTIMG_HEADER_VERSION := 2
@@ -113,11 +114,11 @@ BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 104857600
-BOARD_SUPER_PARTITION_GROUPS := lenovo_dynamic_partitions
-BOARD_LENOVO_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor odm
+BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
+BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor odm
 
 BOARD_SUPER_PARTITION_SIZE := 9126805504 
-BOARD_LENOVO_DYNAMIC_PARTITIONS_SIZE := 9122611200 
+BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9122611200 
 
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -164,7 +165,6 @@ ifeq ($(BOARD_AVB_ENABLE), true)
    BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 2
 endif
 
-
 # VINTF
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/manifest.xml
 PRODUCT_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/vintf/compatibility_matrix.xml
@@ -174,7 +174,6 @@ include device/qcom/sepolicy_vndr/SEPolicy.mk
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
-
 
 # SELinux only for testing
 BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
