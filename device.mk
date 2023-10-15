@@ -65,10 +65,6 @@ PRODUCT_PACKAGES += \
     android.hardware.atrace@1.0-service
 
 
-# USB
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
-
 
 # Audio Configs
 PRODUCT_COPY_FILES += \
